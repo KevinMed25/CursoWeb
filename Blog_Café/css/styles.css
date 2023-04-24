@@ -1,0 +1,120 @@
+:root {
+    --fuenteTitulo: 'PT Sans', sans-serif;
+    --fuenteContenido: 'Open Sans', sans-serif;
+    --colorPrimario: #784d3c;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Configuraciones Globales */
+body {
+    font-family: var(--fuenteContenido);
+    font-size: 1.6rem;
+    line-height: 2; /*Interlineado*/
+}
+.contenedor {
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto; /*0 vertical auto horizontal*/
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4 {
+    font-family: var(--fuenteTitulo);
+}
+h1 {
+    font-size: 4.8rem;
+}
+h2 {
+    font-size: 4rem;
+}
+h3 {
+    font-size: 3.2rem;
+}
+h4 {
+    font-size: 2.8rem;
+}
+img {
+    max-width: 100%;
+}
+
+/* Utilidades */
+.no-margin {
+    margin: 0;
+}
+.no-padding {
+    padding: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
+
+/* Header: */
+.header {
+    background-image: url(../img/banner.jpg);
+    height: 60rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; /*Horizontal - vertical*/
+}
+.header__text {
+    color: var(--blanco);
+    text-align: center;
+    margin-top: 5rem;
+}
+.header__text h2 {
+    line-height: normal;
+}
+.header__text p {
+    margin-top: 1.5rem;
+}
+@media (min-width: 768px) {
+    .header__text {
+        margin-top: 15rem;
+    }
+}
+
+/* Barra: */
+@media (min-width: 768px) {
+    .barra {
+        display:flex;
+        justify-content: space-between; /*Alinear horizontalmente*/
+        align-items: center;    /*Alinear verticalmente*/
+    }
+}
+
+.logo {
+    color:var(--blanco);
+}
+.logo__nombre {
+    font-weight: normal; /*400*/
+}
+.logo__bold {
+    font-weight: bold;  /*700*/
+}
+@media (min-width: 768px) {
+    .navegacion {
+        display: flex;
+        gap: 2rem;
+        /* justify-content: space-between; */
+    }
+    /* .navegacion__enlace {
+        flex-basis: calc(33.3% - 2rem);
+    } */
+}
+.navegacion__enlace {
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
