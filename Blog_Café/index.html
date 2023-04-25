@@ -36,14 +36,14 @@
         </div>
     </header>
 
-    <div class="contenido-principal">
+    <div class="contenedor contenido-principal">
         <main class="blog">
             <h3 class="centrar-texto">Nuestro Blog</h3>
             <article class="entrada">
                 <div class="entrada_img">
                     <img src="img/blog1.jpg" alt="imagen_blog">
                 </div>
-                <div class="entrada_contenido">
+                <div class="entrada__contenido">
                     <h4 class="no-margin centrar-texto">Tipos de grano de Café</h4>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum officia eius eligendi hic voluptas esse deserunt, dolorem pariatur nam magni, ea nostrum, suscipit rem numquam? Necessitatibus cum ea officia rerum?</p>
                     <a class="boton boton--primario" href="entrada.html">Leer Entrada</a>
@@ -53,7 +53,7 @@
                 <div class="entrada_img">
                     <img src="img/blog2.jpg" alt="imagen_blog">
                 </div>
-                <div class="entrada_contenido">
+                <div class="entrada__contenido">
                     <h4 class="no-margin centrar-texto">3 Deliciosas Recetas de café</h4>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum officia eius eligendi hic voluptas esse deserunt, dolorem pariatur nam magni, ea nostrum, suscipit rem numquam? Necessitatibus cum ea officia rerum?</p>
                     <a class="boton boton--primario" href="entrada.html">Leer Entrada</a>
@@ -63,17 +63,47 @@
                 <div class="entrada_img">
                     <img src="img/blog3.jpg" alt="imagen_blog">
                 </div>
-                <div class="entrada_contenido">
+                <div class="entrada__contenido">
                     <h4 class="no-margin centrar-texto">Beneficios del Cafés</h4>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum officia eius eligendi hic voluptas esse deserunt, dolorem pariatur nam magni, ea nostrum, suscipit rem numquam? Necessitatibus cum ea officia rerum?</p>
                     <a class="boton boton--primario" href="entrada.html">Leer Entrada</a>
                 </div>
             </article>
         </main>
-        <aside class="sidebar">
-            <h3>Nuestros cursos y talleres</h3>
+        <aside>
+            <h3 class="sidebar centrar-texto" >Nuestros cursos y talleres</h3>
+            <!-- ul -> Lista no ordenada -->
+            <ul class="cursos no-padding">
+                <li class="widget-curso">
+                    <h4 class="no-margin">Técnicas de extracción de café</h4>
+                    <p class="widget-curso__label"> Precio: <span class="widget-curso__info">Gratis</span></p>
+                    <p class="widget-curso__label"> Cupo: <span class="widget-curso__info">25</span></p>
+                    <a class="boton boton--secundario" href="entrada.html">Más información</a>
+                </li>
+                <li class="widget-curso">
+                    <h4 class="no-margin">4 Recetas de Café para principiantes</h4>
+                    <p class="widget-curso__label"> Precio: <span class="widget-curso__info">Gratis</span></p>
+                    <p class="widget-curso__label"> Cupo: <span class="widget-curso__info">25</span></p>
+                    <a class="boton boton--secundario" href="entrada.html">Más información</a>
+                </li>
+                <li class="widget-curso">
+                    <h4 class="no-margin">Platicando con expertos del Café</h4>
+                    <p class="widget-curso__label"> Precio: <span class="widget-curso__info">Gratis</span></p>
+                    <p class="widget-curso__label"> Cupo: <span class="widget-curso__info">25</span></p>
+                    <a class="boton boton--secundario" href="entrada.html">Más información</a>
+                </li>
+            </ul>
         </aside>
     </div>
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="index.html">
+                    <h1 class="logo__nombre no-margin centrar-texto">Blog<span class="logo__bold">DeCafé</spanclas></h1>
+                </a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
