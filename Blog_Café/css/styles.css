@@ -60,10 +60,19 @@ img {
 .centrar-texto {
     text-align: center;
 }
+.justificar-texto {
+    text-align: justify;
+}
 
 /* Header: */
-.header {
+.webp .header {
+    background-image: url(../img/banner.webp);
+}
+.no-webp .header {
     background-image: url(../img/banner.jpg);
+}
+.header {
+
     height: 60rem;
     background-size: cover;
     background-repeat: no-repeat;
@@ -153,6 +162,7 @@ img {
     text-transform: uppercase;
     margin-bottom: 2rem;
     background-color: var(--negro);
+    border: none;
 }
 .entrada__contenido p {
     text-align: justify;
@@ -187,11 +197,11 @@ img {
     border: none;
     margin: 0;
 }
-.widget-curso__label {
+.widget-curso__label, .curso__label {
     font-weight: bold;
     font-size: 1.8rem;
 }
-.widget-curso__info {
+.widget-curso__info, .curso__info{
     font-weight: 400;
 }
 /*Para el footer*/
@@ -227,4 +237,69 @@ img {
 
 .sobre-nosotros__text{
     text-align: justify;
+}
+
+/* Cursos: */
+.curso {
+    padding: 3rem 0;
+    border-bottom: 0.1rem solid var(--colorBorde);
+}
+.curso:last-of-type {
+    border: none;
+}
+@media (min-width: 768px) {
+    .curso {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+        align-items: center;
+    }
+    .curso__info {
+        text-align: justify;
+    }
+}
+
+/*Contacto*/
+.contacto-bg {
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat; /*Por si al caso*/
+}
+
+.formulario {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 4rem;
+}
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+    flex-direction: column;
+}
+@media (min-width: 768px) {
+    .campo {
+        flex-direction: row;
+    }
+    .campo__label {
+        flex: 0 0 9rem;
+        text-align: right;
+        padding-right: 1rem;
+    }
+}
+.campo__label {
+    flex: 0 0 3rem;
+    font-weight: bold;
+}
+.campo__field {
+    flex: 1;
+    border: 0.1rem solid var(--colorBorde);
+    padding: 1rem;
+}
+.campo__field--textarea {
+    height: 20rem;
+}
+.boton:hover {
+    cursor: pointer;
 }
