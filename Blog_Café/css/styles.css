@@ -280,12 +280,15 @@ img {
 }
 @media (min-width: 768px) {
     .campo {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1fr 5fr;
     }
     .campo__label {
-        flex: 0 0 9rem;
         text-align: right;
-        padding-right: 1rem;
+        padding-right: 2rem;
+    }
+    .boton {
+        grid-column: 2/4;
     }
 }
 .campo__label {
@@ -300,6 +303,7 @@ img {
 .campo__field--textarea {
     height: 20rem;
 }
+
 .boton:hover {
     cursor: pointer;
 }
