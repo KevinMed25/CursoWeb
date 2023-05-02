@@ -12,7 +12,7 @@ heading.textContent = "Nuevo heading"; // edita el texto del selector (investiga
 heading.classList.add("nueva-clase__CSS"); // agrega otra clase de css
 
 
-// QuerySelectorAll --retorna de 0 hasta todos los elementos que concuerden con el selector
+// QuerySelectorAll --retorna de 0 a 1 que concuerden con el selector
 // cuando se agrega una clase css en el selector es necesario agregar el ".", para agregar/quitar clases no
 const enlaces = document.querySelectorAll(".navegacion a"); // devuelve el contenido de todos los enlaces en la clase navegacion
 console.log(enlaces);
@@ -80,13 +80,13 @@ window.onscroll = function(){ //este evento se activa al dar scrol
 }
 
 // Como seleccionar un elemento y asociarle un evento
-const enviar = document.querySelector(".boton--primario")
-enviar.addEventListener("click", function(evento) {
-    console.log(evento)
-    //la siguiente linea es util para validar formularios
-    evento.preventDefault(); //previene el comportamiento por default 
-    console.log("Enviando...")
-})
+// const enviar = document.querySelector(".boton--primario")
+// enviar.addEventListener("click", function(evento) {
+//     console.log(evento)
+//     //la siguiente linea es util para validar formularios
+//     evento.preventDefault(); //previene el comportamiento por default 
+//     console.log("Enviando...")
+// })
 
 //Eventos de teclado
 
@@ -119,75 +119,57 @@ function read(e) {
 //     console.log('click');
 // });
 
+// Eventos de formulario
+// evento summit: (como en el evento de boton pusimos un prevent default, este código no se ejecuta, a menos que se remueva)
+const formulario = document.querySelector(".formulario")
+formulario.addEventListener("submit", function(evento) { //añadimos el evento
+    evento.preventDefault()
+    
+    //para el evento submit se tiene que seleccionar el formulario entero, y a fuerza debe contener un submit, ya sea input o boton
 
-
-// submit
-const formulario = document.querySelector('.formulario');
-
-formulario.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    console.log(e);
-
-    console.log('Di click y la página ya no recarga');
-
-    console.log(datos);
-
-    // Validar el Formulario...
-
-    const { nombre, email, mensaje } = datos;
-
-    if(nombre === '' || email === '' || mensaje === '' ) {
-        console.log('Al menos un campo esta vacio');
-        mostrarError('Todos los campos son obligatorios');
-        return; // Detiene la ejecución de esta función
+    // Validar form
+    const { nombre, email, msj } = datos;
+    if (nombre == "" || msj == "" || email == "") {
+        // console.log("todos los campos deben de ser llenados");
+        alerta("todos los campos deben de ser llenados", true);
+        return; // so entra al if, el return corta la ejecución
     }
 
-    console.log('Todo bien...')
+    alerta("El formulario ha sido enviado correctamente", false)
+    // console.log(nombre)
+    // console.log(email)
+    // console.log(msj)
 
-    mostrarMensaje('Mensaje enviado correctamente');
-});
+    //enviar form
 
+    console.log("Enviando el formulario...")
+})
+// function mostrarError(msj) {
+//     // console.log(msj);
+//     const error = document.createElement("P");
+//     error.textContent = msj;
+//     error.classList.add("error");
 
-function mostrarError(mensaje) {
-    const alerta = document.createElement('p');
-    alerta.textContent = mensaje;
-    alerta.classList.add('error');
+//     formulario.appendChild(error)
+//     // hacer que desaparezca el p en unos seg
+//     setTimeout(() => {
+//         error.remove();
+//     }, 5000)
+// }
 
-    formulario.appendChild(alerta);
+function alerta(msj, error) {
+    // console.log(msj);
+     const mensaje = document.createElement("P");
+     mensaje.textContent = msj;
+     if (error == true) {
+        mensaje.classList.add("error");
+     } else {
+        mensaje.classList.add("enviado");
+     }
 
-    setTimeout(() => {
-        alerta.remove();
-    }, 3000);
-}
-
-function mostrarMensaje(mensaje) {
-    const alerta = document.createElement('p');
-    alerta.textContent = mensaje;
-    alerta.classList.add('correcto');
-    formulario.appendChild(alerta);
-
-    setTimeout(() => {
-        alerta.remove();
-    }, 3000);
-}
-
-
-// Eventos de los Inputs...
-const nombre = document.querySelector('#nombre');
-const email = document.querySelector('#email');
-const mensaje = document.querySelector('#mensaje');
-
-
-nombre.addEventListener('input', leerTexto);
-email.addEventListener('input', leerTexto);
-mensaje.addEventListener('input', leerTexto);
-
-function leerTexto(e) {
-    // console.log(e);
-    // console.log(e.target.value);
-
-    datos[e.target.id] = e.target.value;
-
-    console.log(datos);
+     formulario.appendChild(mensaje)
+     // hacer que desaparezca el p en unos seg
+     setTimeout(() => {
+        listo.remove();
+     }, 5000)
 }
