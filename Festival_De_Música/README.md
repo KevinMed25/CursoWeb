@@ -9,3 +9,7 @@
  - Llamar tareas en Gulp con `npm`:
     + Agregamos en el package.json el script `"tarea": "gulp tarea"`
     + Para llamarlo usamos: `npm run tarea`
+ - Dependencias:
+    + "gulp" : permite crear y auomatizar las tareas
+    + "sass" : contiene la información de sass
+    + "gulp-sass" : conecta gulp con sass

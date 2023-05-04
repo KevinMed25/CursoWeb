@@ -12,6 +12,47 @@
     <link rel="stylesheet" href="build/css/app.css">
 </head>
 <body>
+    <header class="header">
+        <div class="contenedor contenido-header">
+            <h1> Rock & EDm Festival</h1>
+            <nav class="navegacion">
+                <a href="#">Line Up</a> 
+                <a href="#">Galería</a> 
+                <a href="#">Boletos</a> 
+            </nav>
+        </div>
+    </header>
+    <div class="video">
+        <div class="overlay">
+            <div class="contenido-video contenedor">
+                <h2>Rock & EDM Festival</h2>
+                <p>Mayo 2023, Mérida, Yucatán</p>
+            </div>
+        </div>
+        <!-- para que el video se reprodusca autómaticamente / muteado / en loop-->
+        <video autoplay muted loop> 
+            <!-- Si uno no es soportado pasa al siguiente... -->
+            <source src="video/concierto.mp4" type="video/mp4">
+            <source src="video/concierto.ogg" type="video/ogg">
+            <source src="video/concierto.webm" type="video/webm">
+        </video>
+    </div>
+    <section class="contenedor acercaDe">
+        <div class="img">
+            <picture>
+                <!-- si el navgador tiene soporte empieza va en orden avif / webp / jpg -->
+                <source srcset="build/img/imagen_vocalista.avif" type="image/avif">
+                <source srcset="build/img/imagen_vocalista.webp" type="image/webp">
+                <!-- los atributos width y height pintan la img inmediatamente -->
+                <img width="200" height="300" src="src/img/imagen_vocalista.jpg" alt="img vocalista">
+            </picture>
+        </div>
+        <div class=" contenido-festival">
+            <h2>Rock & EDM Festival</h2>
+            <p class="fecha">Mayo 2023, Mérida, Yucatán</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia incidunt ea veritatis blanditiis laudantium, saepe necessitatibus perspiciatis officiis, numquam magni suscipit eligendi. Minima animi maiores, sed quas tenetur ipsum deserunt.</p>
+        </div>
+    </section>
 
 </body>
 </html>

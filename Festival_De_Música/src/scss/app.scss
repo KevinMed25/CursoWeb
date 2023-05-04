@@ -1,5 +1,8 @@
-$color: green;
+//forma anterior:
+// @import "base/variables";
+// @import "contenido/contenido";
 
-body {
-    background-color: $color;
-}
+//Nueva forma: 
+@use "base";
+@use "layout";
+//@use compila  y @forward apunta a los archivos
