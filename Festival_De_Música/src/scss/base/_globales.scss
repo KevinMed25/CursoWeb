@@ -11,6 +11,14 @@ html {
 }
 body {
     font-family: v.$fuentePrincipal;
+    font-size: 1.6rem; // este siempre se pone...
+
+    &.fijar-body {
+        overflow: hidden;
+    }
+    &.body-scroll {
+        padding-top: 8.6rem;
+    }
 }
 p {
     font-size: 2rem;
