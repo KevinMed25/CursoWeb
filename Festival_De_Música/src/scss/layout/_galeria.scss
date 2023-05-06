@@ -1,0 +1,64 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.galeria {
+    padding: 5rem 0;
+
+    h3 {
+        text-align: center;
+    }
+}
+.galeria-img {
+    @include m.reset-list;
+    @include m.grid(2, 2rem);
+
+    //media querys
+    @include m.phone {
+        @include m.grid(3, 2rem);
+    }
+    @include m.tablet {
+        @include m.grid(4, 2rem);
+    }
+    @include m.pc {
+        @include m.grid(6, 2rem);
+    }
+}
+
+//clase añadida con js
+.overlay {
+    position: fixed; //deja en posicion fija
+    //"coordenadas"
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;//cetra vertical y horizontalmente
+    // background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(0 0 0 / 0.5);
+
+    picture {
+        display: block;
+        max-width: 80rem;
+    }
+}
+.boton-cerrar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: v.$blanco;
+    color: darken(v.$blanco, 50%);
+    font-weight: bold;
+    //para centrar
+    display: grid;
+    place-items: center;
+
+        &:hover {
+            cursor: pointer;
+            // color: v.$negro;
+            background-color: v.$amarillo;
+        }
+}

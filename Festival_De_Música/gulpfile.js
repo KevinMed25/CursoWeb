@@ -23,13 +23,20 @@ const sass = require("gulp-sass")(require("sass")); //conectar sass con gulp
 function css(done) {
     // Identificar el archivo SASS // Compilarlo // Almacena 
     // src("src/scss/app.scss").pipe(sass()).pipe(dest("build/css"));
-    src("src/scss/**/*.scss").pipe(plumber()).pipe(sass()).pipe(dest("build/css")); // modificacion para registrar cambios en todas las carpetas
+    src("src/scss/**/*.scss") // Identificar el archivo SASS //
+        .pipe(sourcemaps.init()) //inicializamos sourcemaps
+        .pipe(plumber()) // modificacion para registrar cambios en todas las carpetas
+        .pipe(sass()) // Compilarlo
+        .pipe(postcss([autoprefixer(), cssnano()])) //mejoras
+        .pipe(sourcemaps.write(".")) //guarda y escribe sourcemaps
+        .pipe(dest("build/css")); // Almacena 
     done(); // callback que avisa cuando se llega al final
 }
 
 function dev(done) {
     // watch("src/scss/app.scss", css);
     watch("src/scss/**/*.scss", css);
+    watch("src/js/**/*.js", JavaScript);
     done();
 }
 
@@ -70,15 +77,33 @@ function convertirAvif (done) {
     done();
 }
 
+// JavaScript
+function JavaScript(done) {
+    src("src/js/**/*.js")
+        .pipe(sourcemaps.init()) // creamos sourcemap
+        .pipe(terser()) //aplicamos terser (comprimir codigo)
+        .pipe(sourcemaps.write(".")) // escribe el map
+        .pipe(dest("build/js"));//almacena
+    done();
+}
 
+//Comprimir css y mejoras
+const autoprefixer = require("autoprefixer"); //se asegura de que funcione en todos los navegadores, por soporte
+const cssnano = require("cssnano"); // comprime codigo css
+const postcss = require("gulp-postcss"); // hace tranformaciones con los anteiores?
+const sourcemaps = require("gulp-sourcemaps"); // source map
 
-//exports.funcion = como se llamará en consola
+// Compimir JS con terser
+const terser = require("gulp-terser-js");
+
+//exports.como se llamará en consola = funcion
 exports.css = css;
 // exports.dev = dev;
 exports.convertirWebp = convertirWebp;
 exports.convertirAvif = convertirAvif;
 exports.img = img;
-exports.dev = parallel(img, convertirWebp, convertirAvif, dev);
+exports.js = JavaScript; //añadimos js a build
+exports.dev = parallel(img, convertirWebp, convertirAvif, JavaScript, dev);
 
 
 

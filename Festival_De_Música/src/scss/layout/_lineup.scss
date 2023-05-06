@@ -1,0 +1,88 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.lineup {
+    background-color: v.$rosa;
+    padding: 5rem 0;
+    
+    .dia {
+        text-transform: uppercase;
+        margin: 5rem 0;
+    }
+    h3 {
+        font-size: 3.5rem;
+    }
+    h3, p {
+        text-align: center;
+        color:v.$blanco;
+    }
+}
+.esc-contenedor {
+
+    @include m.tablet {
+        @include m.grid(2, 5rem);
+    }
+    
+    p {
+        color: v.$negro;
+    }
+    .name-esc {
+        font-weight: bold;
+    }
+    //recrdar que aplica a ambos...
+    .escenario {
+        border-radius: 1rem;
+        padding-top: 2rem;
+        margin-bottom: 2rem;
+        @include m.tablet {
+            margin-bottom: 0;
+        }
+
+        .name-esc { //seudo selector
+            &:after {
+                content: '';
+                display: block;
+                width: 20rem;
+                height: 10rem;
+                background-size: 15rem;
+                background-repeat: no-repeat;
+                background-position: center center; //horizontal
+                margin: 2rem auto 0 auto;
+            }
+        }
+    }
+
+}
+.rock .name-esc:after {
+    background-image: url(../img/icono_rock.png);
+}
+.edm .name-esc:after {
+    background-image: url(../img/icono_edm.png);
+}
+.bg-am {
+    background-color: v.$amarillo;
+    // :nth-child(2) seleccionará el segundo elemento hijo de su contenedor padre.
+    // :nth-child(odd) seleccionará todos los elementos impares.
+    // :nth-child(even) seleccionará todos los elementos pares.
+    // :nth-child(3n+1) seleccionará los elementos cuyo índice sea igual a 1, 4, 7, 10, etc. (múltiplos de 3 más 1).
+    // :nth-child(-n+3) seleccionará los primeros tres elementos hijos.
+    li:nth-child(odd){
+        background-color: darken(v.$amarillo, 15%); //color, porcentaje a oscurecer
+    }
+}
+.bg-ver {
+    background-color: v.$verde;
+    li:nth-child(odd){
+        background-color: darken(v.$verde, 10%); //color, porcentaje a oscurecer
+    }
+}
+.calendar {
+    @include m.reset-list;
+    li {
+        padding: 2rem;
+        font-weight: bold;
+        span {
+            font-weight: normal;
+        }
+    }
+}
