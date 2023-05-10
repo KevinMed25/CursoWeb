@@ -19,7 +19,7 @@ $producto = [
 ];
 
 echo "<pre>";
-var_dump($productos);
+var_dump($producto);
 echo "</pre>";
 
 $json = json_encode($producto, JSON_UNESCAPED_UNICODE); //convertimos a string//para usar acentos//array-str

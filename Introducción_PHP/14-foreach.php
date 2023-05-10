@@ -19,11 +19,11 @@ $producto = [
 ];
 
 //es mejor usar html de esta forma
-foreach( $productos as $producto) { ?> <!-- termina php-->
+foreach( $producto as $producto) { ?> <!-- termina php-->
     <li>
         <p>Producto: <?php echo $producto['nombre']; ?> </p>
         <p>Precio: <?php echo "$" . $producto['precio']; ?> </p>
-        <p><?php echo ($producto['disponible']) ? 'Disponible' : 'No Disponible';  ?> </p> // operador ternario
+        <p><?php echo ($producto['disponible']) ? 'Disponible' : 'No Disponible';  ?> </p> <!--operador ternario-->
     </li>
     <?php //comienza php
 }

@@ -10,10 +10,19 @@ sumar1(20, 3);
 sumar1(num2:20, num1:3); //podemos mandar parametros nombrados
 
 
-// Podemos pasar varios tipos de datos...
-function sumar2(int $num1 = 0, array $num2 ) {
-    echo $num1 + $num2;
+// Podemos pasar varios tipos de datos... (aqui lo puse asi pq solo era ver que el lenguaje acepte el parametro)
+// function sumar2(int $num1 = 0, array $num2 ) {
+//     echo $num1 + $num2;
+// }
+
+//Esta funcion realiza la suma correctamente 
+function sumar2(int $num1 = 0, array $num2 = []) {
+    foreach ($num2 as $numero){
+        $num1 += $numero;
+    }
+    return $num1; //lo que hace es un acumulado, el primer valor (el de num1) se suma y se acumula en cada iteración 
 }
-sumar2(1, [3]);
+
+echo sumar2(1, [6]);
 
 include 'includes/footer.php';
