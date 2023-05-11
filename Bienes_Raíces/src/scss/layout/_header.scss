@@ -1,0 +1,27 @@
+
+.no-webp .principal {
+    background-image: url(../img/header.jpg);
+}
+
+.webp .principal {
+    background-image: url(../img/header.webp);
+
+}
+
+.header {
+    background: $grisOscuro;
+    padding: 1rem 0 3rem 0;
+
+    &.principal {
+
+        background-position: center center; // como se mostrara
+        background-size: cover;
+        @include tablet {
+            min-height: 70rem;
+        }
+    }
+}
+
+.contenido-header {
+    
+}
