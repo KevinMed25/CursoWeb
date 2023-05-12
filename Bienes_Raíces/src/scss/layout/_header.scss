@@ -16,12 +16,40 @@
 
         background-position: center center; // como se mostrara
         background-size: cover;
+
         @include tablet {
             min-height: 70rem;
+        }
+
+        .contenido-header {
+            @include tablet {
+                min-height: 70rem;//para que ocupe lo mismo que el header
+            }
         }
     }
 }
 
 .contenido-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     
+    h1 {
+        color: $blanco;
+        margin: 0 1rem;
+    }
+
+    @include tablet {
+
+        h1 {
+            font-weight: bold;
+            text-align: left;
+            line-height: 2;
+            max-width: 70rem; //para añadir e salto de linea sin <br>
+            font-size: 4rem;
+            padding-left: 1rem;
+        }
+    }
+
 }
