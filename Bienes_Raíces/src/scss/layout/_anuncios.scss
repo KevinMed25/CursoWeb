@@ -7,29 +7,38 @@
 .anuncio {
     background-color: lighten($color: $gris, $amount: 5);
     border: 0.1rem solid lighten($color: $grisOscuro, $amount: 10);
+    margin-bottom: 2rem;
 
     .contenido-anuncio {
         padding: 2rem;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     h3, p {
         margin: 0;
     }
-    .precio {
-        color: $verde;
-        font-weight: $bold;
-        font-size: 3rem;
-    }
+}
+.precio {
+    text-align: center;
+    color: $verde;
+    font-weight: $bold;
+    font-size: 3rem;
 }
 
 .iconos-caracteristicas {
     display: flex;
     list-style: none;
     padding: 0;
+    max-width: 40rem;
+
     li {
-        flex:1;
+        flex: 1;
         display: flex;
+        justify-content: center;
+        margin: 0 2rem 0 2rem;
 
         img {
             flex: 0 0 3rem;
@@ -38,5 +47,14 @@
         p {
             color: $black;
         }
+    }
+
+}
+.resumen-propiedad {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    li {
+        margin: 0 2rem 0 2rem;
     }
 }
