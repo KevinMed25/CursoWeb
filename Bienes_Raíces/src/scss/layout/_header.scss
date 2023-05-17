@@ -18,12 +18,15 @@
         background-size: cover;
 
         @include tablet {
-            min-height: 70rem;
+            min-height: 55rem;
         }
 
         .contenido-header {
             @include tablet {
-                min-height: 70rem;//para que ocupe lo mismo que el header
+                min-height: 55rem;//para que ocupe lo mismo que el header
+                h1 {
+                    margin-bottom: 2rem;
+                }
             }
         }
     }
