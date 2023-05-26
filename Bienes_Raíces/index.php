@@ -60,7 +60,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a class="boton-amarillo-block" href="anuncio.html">Ver Propiedad</a>
+                    <a class="boton-amarillo-block" href="anuncio.php">Ver Propiedad</a>
                 </div>
             </div>
 
@@ -92,7 +92,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a class="boton-amarillo-block" href="anuncio.html">Ver Propiedad</a>
+                    <a class="boton-amarillo-block" href="anuncio.php">Ver Propiedad</a>
                 </div>
             </div>
 
@@ -124,19 +124,19 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a class="boton-amarillo-block" href="anuncio.html">Ver Propiedad</a>
+                    <a class="boton-amarillo-block" href="anuncio.php">Ver Propiedad</a>
                 </div>
             </div>
         </div>
         <div class="alinear-derecha">
-            <a href="anuncios.html" class="boton-verde">Ver Todas</a>
+            <a href="anuncios.php" class="boton-verde">Ver Todas</a>
         </div>
     </section>
 
     <section class="img-contacto">
         <h2>Encuentra la Casa de tus Sueños</h2>
         <p>Llena el formulario de contecto y un asesor se pondrá en contacto contigo a la brevedad</p>
-        <a href="contacto.html" class="boton-amarillo">Contáctanos</a>
+        <a href="contacto.php" class="boton-amarillo">Contáctanos</a>
     </section>
 
     <div class="seccion-inferior contenedor">
@@ -151,7 +151,7 @@
                     </picture>
                 </div>
                 <div class="texto-entrada">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Guía para la decoración de tu hogar</h4>
                         <p class="informacion-meta">Escrito el: <span>120/5/2023</span> por: <span>Admin</span> </p>
                         <p>
@@ -169,7 +169,7 @@
                     </picture>
                 </div>
                 <div class="texto-entrada">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Terraza al techo de tu casa</h4>
                         <p class="informacion-meta">Escrito el: <span>120/5/2023</span> por: <span>Admin</span> </p>
                         <p>
