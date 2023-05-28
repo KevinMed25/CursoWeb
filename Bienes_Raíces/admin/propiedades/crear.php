@@ -80,8 +80,8 @@
         if(!$imagen['name'] || $imagen['error']) {
             $errores[] = "La imagen es obligatoria";
         }
-        //Validar por tamaño de archivo: (100kb máximo)
-        $medida = 1000 * 100;
+        //Validar por tamaño de archivo: (10Mb máximo)
+        $medida = 1024 * 1024 * 10;
         if($imagen['size'] > $medida) {
             $errores[] = "La imagen es muy pesada";
         }
@@ -94,8 +94,21 @@
         //Validar que el arrar de errores este vació
         if (empty($errores)) {
 
+            /* SUBIR ARCHIVOS */
+
+            //Crear carpeta:
+            $carpetaimagenes = '../../imagenes/';
+            //Verificar si la carpeta ya existe:
+            if(!is_dir($carpetaimagenes)) {
+                mkdir($carpetaimagenes);//si no existe, crea la carpeta
+            }
+            //Generar nombre único:
+            $nombreImg = md5(uniqid(rand(), true)).".jpg"; //agrego la extension aqui para que lo guarde igual en la
+
+            //Subir el archivo:
+            move_uploaded_file($imagen['tmp_name'], $carpetaimagenes.$nombreImg);
             //insertar en Db:
-            $query = " INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado, vendedores_id) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorId')";
+            $query = " INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, creado, vendedores_id) VALUES ('$titulo', '$precio', '$nombreImg', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorId')";
             // echo $query;
             $resultado = mysqli_query($db, $query); //conexión a db / query
 
@@ -103,7 +116,8 @@
                 // echo "Insertado correctamente";
 
                 //Redirección al usuario (evita duplicar entrada)
-                header('Location: /admin');
+                // header('Location: /admin?mensaje=Registrado Correctamente'); //investigar "?"
+                header('Location: /admin?resultado=1'); //investigar "?"
             }
         }
 
@@ -115,7 +129,7 @@
 ?>
 
     <main class="contenedor seccion">
-        <h1>Crear</h1>
+        <h1 class="negritas">Crear Anuncio</h1>
         <a href="/admin" class="boton boton-verde"> Volver </a>
         
         <?php foreach($errores as $error): ?>
@@ -148,7 +162,7 @@
                 <input type="number" min="1" max="9" id="habitaciones" placeholder="Ej:3" name="habitaciones" value="<?php echo $habitaciones; ?>">
 
                 <label for="wc">Baños:</label>
-                <input type="number" min="1" max="9" id="wc" placeholder="Ej:3" name="wc"> 
+                <input type="number" min="1" max="9" id="wc" placeholder="Ej:3" name="wc" value="<?php echo $wc; ?>"> 
 
                 <label for="estacionamiento">Estacionamiento:</label>
                 <input type="number" min="1" max="9" id="estacionamiento" placeholder="Ej:3" name="estacionamiento" value="<?php echo $estacionamiento; ?>"> 
