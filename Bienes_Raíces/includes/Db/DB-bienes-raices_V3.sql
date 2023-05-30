@@ -45,7 +45,7 @@ CREATE TABLE `propiedades` (
 
 LOCK TABLES `propiedades` WRITE;
 /*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
-INSERT INTO `propiedades` VALUES (13,'Casa en la playita (Actualizado)',500000.00,'d7f92286a73442229da4804457015177.jpg','     Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo ',3,2,2,'2023-05-28',1),(14,'Chozita',70000.00,'00e0f79768b00d80b4e8565bad2bf168.jpg',' probando  probando  probando  probando  probando  probando  probando  probando  probando  probando ',3,3,3,'2023-05-28',2),(17,'Otra Casa en la Playa',20000000.00,'db18b8e80f7ea4bbbd28e0a7c78dc075.jpg',' Para tebner las 3 mimnimas en el index',1,1,1,'2023-05-28',1);
+INSERT INTO `propiedades` VALUES (13,'Casa en la playita (Actualizado)',500000.00,'90b1c75997cad7f30246760a56048b0e.jpg','      Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo ',3,2,2,'2023-05-28',1),(14,'Chozita',70000.00,'0016f1f13a601b7b4638dddcfec25d90.jpg','   probando  probando  probando  probando  probando  probando  probando  probando  probando  probando ',3,3,3,'2023-05-28',2),(17,'Otra Casa en la Playa',20000000.00,'f5ba66d749dd889fc4ae891f3b7c6c9e.jpg','  Para tebner las 3 mimnimas en el index',1,1,1,'2023-05-28',1);
 /*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,4 +84,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-28  1:35:57
+-- Dump completed on 2023-05-29 20:24:09
