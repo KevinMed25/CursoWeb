@@ -13,7 +13,7 @@
     $resultadoQuery = mysqli_query($db, $query);
 
     //Mensaje condicional
-    $resultado = $_GET['resultado'];// ?? null; //?? null busca el valor, si no existe asigna null
+    $resultado = $_GET['resultado'] ?? null; //?? null busca el valor, si no existe asigna null
 
     //Para borrar registro 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
