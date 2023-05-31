@@ -6,7 +6,22 @@
 .boton-amarillo-block {
     @include boton($amarillo, block);
 }
+.boton-amarillo-block-tabla{
+    @include boton($amarillo, block);
+    border-radius: 1rem;
+}
 
 .boton-verde {
     @include boton($verde, inline-block);
+}
+
+.boton-rojo-block {
+    @include boton($rojo, block);
+    border-radius: 1rem;
+    width: 100%;
+    padding: 1.5rem;
+}
+.boton-verde-block {
+    @include boton($verde, block);
+   
 }
