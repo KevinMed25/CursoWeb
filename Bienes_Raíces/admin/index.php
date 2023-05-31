@@ -1,8 +1,12 @@
 <?php
-    // echo "<pre>";
-    // echo var_dump($_GET);
-    // echo "</pre>";
-    // $mensaje = $_GET['mensaje'];
+
+    //Autenticacion
+    require '../includes/funciones.php';
+    $auth = isAuth();
+    echo $auth;
+    if(!$auth) {
+       header('Location: /');
+    }
 
     //Para lectura db
     require '../includes/config/database.php';
@@ -38,7 +42,6 @@
     }
 
     //Incluir template
-    require '../includes/funciones.php';
     incluirTemplate('header',$principal = true);
 ?>
 
