@@ -1,5 +1,12 @@
 <?php
 
+    //Autenticacion
+    require '../../includes/funciones.php';
+    $auth = isAuth();
+    if(!$auth) {
+       header('Location: /');
+    }
+
     //RECUPERAR ID:
     //validar url por id válido
     $id = $_GET['id'];
@@ -123,7 +130,6 @@
     }
 
     //funciones
-    require '../../includes/funciones.php';
     incluirTemplate('header');
 ?>
 
