@@ -50,6 +50,31 @@ INSERT INTO `propiedades` VALUES (13,'Casa en la playita (Actualizado)',500000.0
 UNLOCK TABLES;
 
 --
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuarios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` char(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (2,'correo@correo.com','$2y$10$3ji8dYwI0UHf7MhYxA5b8ekwDqBwZXILSJX2keGXDz7UgzaLI2j8W'),(3,'correo@correo.com','$2y$10$uZ0I/HU6Ng2Sbo2TZoTjkeNYBvr0TNAFTZG37zLl10gRjh2ToOdZe'),(4,'correo@correo.com','$2y$10$cXKRm0mByV7GrtKGzdUzS.j0jcv4AQJQQQNg2jA/2MrVN4czjbFym');
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `vendedores`
 --
 
@@ -84,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-29 20:24:09
+-- Dump completed on 2023-06-01 13:08:10
