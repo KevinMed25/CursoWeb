@@ -3,7 +3,7 @@
     //Autenticacion
     require '../includes/funciones.php';
     $auth = isAuth();
-    echo $auth;
+    // echo $auth;
     if(!$auth) {
        header('Location: /');
     }

@@ -36,7 +36,7 @@ CREATE TABLE `propiedades` (
   PRIMARY KEY (`id`),
   KEY `fk_propiedades_vendedores_idx` (`vendedores_id`),
   CONSTRAINT `fk_propiedades_vendedores` FOREIGN KEY (`vendedores_id`) REFERENCES `vendedores` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `propiedades` (
 
 LOCK TABLES `propiedades` WRITE;
 /*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
-INSERT INTO `propiedades` VALUES (13,'Casa en la playita (Actualizado)',500000.00,'90b1c75997cad7f30246760a56048b0e.jpg','      Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo  Probando todo de nuevo ',3,2,2,'2023-05-28',1),(14,'Chozita',70000.00,'0016f1f13a601b7b4638dddcfec25d90.jpg','   probando  probando  probando  probando  probando  probando  probando  probando  probando  probando ',3,3,3,'2023-05-28',2),(17,'Otra Casa en la Playa',20000000.00,'f5ba66d749dd889fc4ae891f3b7c6c9e.jpg','  Para tebner las 3 mimnimas en el index',1,1,1,'2023-05-28',1);
+INSERT INTO `propiedades` VALUES (14,'Chozita',70000.00,'0016f1f13a601b7b4638dddcfec25d90.jpg','   probando  probando  probando  probando  probando  probando  probando  probando  probando  probando ',3,3,3,'2023-05-28',2),(17,'Otra Casa en la Playa',20000000.00,'f5ba66d749dd889fc4ae891f3b7c6c9e.jpg','  Para tebner las 3 mimnimas en el index',1,1,1,'2023-05-28',1),(18,'Casa en la playita',40000.00,'f624383bc20f6603143dcc928a658c79.jpg',' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor augue felis, facilisis bibendum tortor dictum vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor augue felis, facilisis bibendum tortor dictum vel.',3,3,3,'2023-06-01',2);
 /*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-01 13:16:20
+-- Dump completed on 2023-06-01 13:37:58
