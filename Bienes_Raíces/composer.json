@@ -1,0 +1,17 @@
+{
+    "name": "kevin/bienes_raices",
+    "description": "Proyecto con POO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "./clases"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alejandro Medina",
+            "email": "kevinmedina2509Jr@gmail.com"
+        }
+    ],
+    "require": {}
+}

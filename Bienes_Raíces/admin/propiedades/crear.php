@@ -1,13 +1,15 @@
 <?php
 
     //Autenticacion
-    require '../../includes/funciones.php';
-    $auth = isAuth();
-    if(!$auth) {
-       header('Location: /');
-    }
+    require '../../includes/app.php';
+
+    use App\Propiedad;
+    // $propiedad = new Propiedad();
+    // debug($propiedad);
+
+    isAuth();
+
     //Base de datos:
-    require '../../includes/config/database.php';
     $db = conectarDB();
 
     // echo "<pre>";

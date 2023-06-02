@@ -2,11 +2,7 @@
 
     //Autenticacion
     require '../includes/funciones.php';
-    $auth = isAuth();
-    // echo $auth;
-    if(!$auth) {
-       header('Location: /');
-    }
+    isAuth();
 
     //Para lectura db
     require '../includes/config/database.php';
