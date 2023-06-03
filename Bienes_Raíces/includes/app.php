@@ -6,7 +6,10 @@
 
     use App\Propiedad;
 
-    $propiedad = new Propiedad();
+    //conectar a db
+    $db = conectarDB();
 
+    $propiedad = new Propiedad();
+    $propiedad::setDb($db);
 
 ?>
