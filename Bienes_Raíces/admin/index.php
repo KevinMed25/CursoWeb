@@ -1,39 +1,26 @@
 <?php
     require '../includes/app.php';
     use App\Propiedad;
+use App\Vendedor;
 
-    //Autenticacion
-    isAuth();
+    isAuth(); //Autenticacion
+    $propiedades = Propiedad::all(); //Método para obtener todas las propiedades:
 
-    //Método para obtener todas las propiedades:
-    $propiedades = Propiedad::all();
-    
+    $vendedores = Vendedor::all();
+
     //Mensaje condicional
     $resultado = $_GET['resultado'] ?? null; //?? null busca el valor, si no existe asigna null
-
-    //Para borrar registro 
+    
+    //Para borrar registro:
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'];
         $id = filter_var($id, FILTER_VALIDATE_INT);
-
+        
         if($id) {
-            //eliminar archivo img
-            $query = "SELECT imagen FROM propiedades WHERE id = {$id}";
-            $resultado = mysqli_query($db, $query);
-            $propiedad = mysqli_fetch_assoc($resultado);
-            unlink('../imagenes/'.$propiedad['imagen']);
-
-            //eliminar la propiedad
-            $query = "DELETE FROM propiedades WHERE id = {$id}";
-            $resultado = mysqli_query($db, $query);
-
-            if($resultado) {
-                header('Location: /admin?resultado=3');
-            }
+            $propiedad = Propiedad::find($id); //Obtener datos de propidad
+            $propiedad->eliminar();
         }
     }
-
-    //Incluir template
     incluirTemplate('header',$principal = true);
 ?>
 
@@ -43,9 +30,9 @@
         <!-- intval cast a entero -->
         <?php if(intval($resultado) === 1):  ?>
             <p class="alerta exito">Anuncio Creado Correctamente!</p>
-            <?php elseif(intval($resultado) ===2): ?>
+            <?php elseif(intval($resultado) === 2): ?>
                 <p class="alerta exito">Anuncio Actualizado Correctamente!</p>
-                <?php elseif(intval($resultado) ===3): ?>
+                <?php elseif(intval($resultado) === 3): ?>
                     <p class="alerta exito">Anuncio Eliminado Correctamente!</p>
         <?php endif ?>
 
@@ -83,8 +70,6 @@
     </main>
 
 <?php 
-    //cerrar conexion db
-    mysqli_close($db);
-
+    mysqli_close($db); //cerrar conexion db
     incluirTemplate('footer');
 ?>
