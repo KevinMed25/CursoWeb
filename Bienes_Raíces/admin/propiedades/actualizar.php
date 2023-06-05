@@ -1,11 +1,8 @@
 <?php
 
     //Autenticacion
-    require '../../includes/funciones.php';
-    $auth = isAuth();
-    if(!$auth) {
-       header('Location: /');
-    }
+    require '../../includes/app.php';
+    isAuth();
 
     //RECUPERAR ID:
     //validar url por id válido
@@ -16,7 +13,6 @@
     }
 
     //Base de datos:
-    require '../../includes/config/database.php';
     $db = conectarDB();
 
     //Obtener datos de propiedad:

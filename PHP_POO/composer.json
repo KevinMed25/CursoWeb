@@ -1,0 +1,16 @@
+{
+    "name": "kevin/php_poo",
+    "description": "Aprendiendo Namspaces y autoload",
+    "autoload": {
+        "psr-4": {
+            "App\\": "./clases"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kevin",
+            "email": "kevinmedina2509Jr@gmail.com"
+        }
+    ],
+    "require": {}
+}

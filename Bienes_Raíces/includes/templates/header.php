@@ -39,7 +39,7 @@
                         <?php if($auth): ?>
                             <a href="/cerrar-sesion.php">Cerrar Sesión</a>
                         <?php else: ?>
-                            <a href="/login.php">Iniciar Sesión</a>
+                            <a href="/login.php">Administrador</a>
                         <?php endif; ?>
                     </nav>
                 </div>
