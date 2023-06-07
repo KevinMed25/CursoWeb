@@ -3,15 +3,13 @@
     require '../../includes/app.php';
 
     use App\Propiedad;
+    use App\Vendedor;
     use Intervention\Image\ImageManagerStatic as Image;
 
     isAuth();
-    $db = conectarDB();
     $propiedad = new Propiedad();
-
-    //Consultar para tener a los vendedores:
-    $consulta = "SELECT * FROM vendedores";
-    $resultado = mysqli_query($db, $consulta);
+    //Obtener todos los vendedores:
+    $vendedores = Vendedor::all();
 
     $errores = Propiedad::getErrores();  //Arreglo con msjs de error
 
@@ -31,6 +29,7 @@
         
         $errores = $propiedad->validar(); //Validar datos
         if (empty($errores)) { //Validar que el arrar de errores este vació
+            
             if (!is_dir(CARPETA_IMAGENES)) { //Crear carpeta para subir imagenes:
                 mkdir(CARPETA_IMAGENES);
             }
@@ -55,7 +54,7 @@
         
         <!-- enctype="multipart/form-data es necesario para la subida de archivo (investigar) -->
         <form method="POST" action="/admin/propiedades/crear.php" class="formulario" enctype="multipart/form-data">
-            <?php include '../../includes/templates/formulario.php' ?>
+            <?php include '../../includes/templates/formulario-propiedades.php' ?>
             <input type="submit" value="Crear Propiedad" class="boton  boton-verde">
         </form>
     </main>

@@ -10,6 +10,10 @@
 
         //Errores:
         protected static $errores = [];
+        
+        public static function setDb($database) {
+            self::$db = $database;
+        }
 
         public function guardar() {
             if (!is_null($this->id)) {
@@ -48,10 +52,8 @@
             $query = "UPDATE " . static::$tabla . " SET ";
             $query .=  join(', ', $valores);
             $query .= " WHERE id = '".self::$db->escape_string($this->id)."' ";
-            $query .= " LIMIT 1 ";
-            
+            $query .= " LIMIT 1";            
             $resultado = self::$db->query($query);
-
             if($resultado) {
                 header('Location: /admin?resultado=2'); //investigar "?"
             }
@@ -66,9 +68,6 @@
             }
         }
 
-        public static function setDb($database) {
-            self::$db = $database;
-        }
 
         public function sanitizarDatos() {
             $datos = $this->datos();
@@ -83,7 +82,7 @@
 
         public function datos() {
             $datos = [];
-            foreach(self::$columnasDB as $columna) {
+            foreach(static::$columnasDB as $columna) {
                 if ($columna === 'id') continue;
                 $datos[$columna] = $this->$columna;
             }
@@ -108,47 +107,29 @@
             $existeArchivo = file_exists(CARPETA_IMAGENES.$this->imagen);
             if ($existeArchivo) {
                 unlink(CARPETA_IMAGENES.$this->imagen);
-            }
+            }  
         }
 
         //Validacion:
         public static function getErrores() {
-            return self::$errores;
+            return static::$errores;
         }
 
         public function validar() {
-                    
-            if(!$this->titulo) {
-                self::$errores[] = "Debes de añadir un título";
-            }
-            if(!$this->precio) {
-                self::$errores[] = "El precio es obligatorio";
-            }
-            if((!$this->descripcion) && (strlen($this->descripcion) < 50)) {
-                self::$errores[] = "Debes añadir una descripción y debe teener al menos 50 caracteres";
-            }
-            if(!$this->habitaciones) {
-                self::$errores[] = "El número de habitaciones es obligatorio";
-            }
-            if(!$this->wc) {
-                self::$errores[] = "El número de baños es obligatorio";
-            }
-            if(!$this->estacionamiento) {
-                self::$errores[] = "El número de estacionamientos es obligatorio";
-            }
-            if(!$this->vendedores_id) {
-                self::$errores[] = "Elige un vendedor";
-            }
-            if(!$this->imagen) {
-                self::$errores[] = "La imagen es obligatoria";
-            }
-
-            return self::$errores;
+            static::$errores = []; //limpiar cada que se use el método
+            return static::$errores;
         }
 
         //Listar todas las registros
         public static function all() {
             $query = "SELECT * FROM " . static::$tabla; // static hereda el metodo y busca el atributo en la clase que se esta usando
+            $resultado = self::consultarSQL($query);
+            return $resultado;
+        }  
+
+        //Obtiene determinado # de registros
+        public static function get($cantidad) {
+            $query = "SELECT * FROM " . static::$tabla. " LIMIT ". $cantidad;
             $resultado = self::consultarSQL($query);
             return $resultado;
         }  
@@ -160,7 +141,7 @@
             //iterar resultados
             $array = [];
             while($registro = $resultado->fetch_assoc()) {
-                $array[] = self::crearObjeto($registro);
+                $array[] = static::crearObjeto($registro);
             }
 
             //Liberar memoria

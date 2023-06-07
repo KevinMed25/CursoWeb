@@ -21,7 +21,7 @@
         
         function __construct($args = []) {
             
-            $this->id = $args['titulo'] ?? null;
+            $this->id = $args['id'] ?? null;
             $this->titulo = $args['titulo'] ?? '';
             $this->precio = $args['precio'] ?? '';
             $this->imagen = $args['imagen'] ?? '';
@@ -32,6 +32,36 @@
             $this->creado = date('Y/m/d');
             $this->vendedores_id = $args['vendedores_id'] ?? '';
 
+        }
+
+        public function validar() {
+                    
+            if(!$this->titulo) {
+                self::$errores[] = "Debes de añadir un título";
+            }
+            if(!$this->precio) {
+                self::$errores[] = "El precio es obligatorio";
+            }
+            if((!$this->descripcion) && (strlen($this->descripcion) < 50)) {
+                self::$errores[] = "Debes añadir una descripción y debe teener al menos 50 caracteres";
+            }
+            if(!$this->habitaciones) {
+                self::$errores[] = "El número de habitaciones es obligatorio";
+            }
+            if(!$this->wc) {
+                self::$errores[] = "El número de baños es obligatorio";
+            }
+            if(!$this->estacionamiento) {
+                self::$errores[] = "El número de estacionamientos es obligatorio";
+            }
+            if(!$this->vendedores_id) {
+                self::$errores[] = "Elige un vendedor";
+            }
+            if(!$this->imagen) {
+                self::$errores[] = "La imagen es obligatoria";
+            }
+
+            return self::$errores;
         }
     }
 

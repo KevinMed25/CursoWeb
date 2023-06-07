@@ -30,13 +30,15 @@
     <input type="number" min="1" max="9" id="estacionamiento" placeholder="Ej:3" name="propiedad[estacionamiento]" value="<?php echo healt($propiedad->estacionamiento); ?>"> 
 </fieldset>
 <fieldset>
-    <!-- <legend>Vendedor</legend>
-
-    <select name="vendedores_id" id="vendedor" value="<?php echo healt($propiedad->vendedores_id); ?>">
-        <option value="">Seleccionar</option>
-        <?php while($vendedor = mysqli_fetch_assoc($resultado)): ?>
-                        <!-- el condicional es para mantener la seleccion previa, recupera el select del post -->
-            <!-- <option <?php echo $vendedorId === $vendedor['id']? 'selected' : '';?> value="1"> <?php echo $vendedor['nombre']." ".$vendedor['apellido']; ?> </option> -->
-        <?php endwhile; ?>
-    <!-- </select> --> 
+    <legend>Vendedores</legend>
+    <label for="vendedor">Vendedor</label>
+    <select name="propiedad[vendedores_id]" id="vendedor">
+        <option selected value="">--Seleccionar--</option>
+        <?php foreach($vendedores as $vendedor): ?>
+            <option
+                <?php echo $propiedad->vendedores_id === $vendedor->id ? 'selected' : '' ; ?>
+                value="<?php echo healt($vendedor->id); ?>"
+            ><?php echo healt($vendedor->nombre)." ".healt($vendedor->apellido); ?> </option>
+        <?php endforeach; ?>
+    </select>
 </fieldset>

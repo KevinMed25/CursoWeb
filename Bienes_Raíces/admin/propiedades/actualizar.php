@@ -1,14 +1,17 @@
 <?php
-
+    
     use App\Propiedad;
+    use App\Vendedor;
     use Intervention\Image\ImageManagerStatic as Image;
     require '../../includes/app.php';
+
     isAuth();
-    
+ 
     //RECUPERAR ID:
     //validar url por id válido
     $id = $_GET['id'];
     $id = filter_var($id, FILTER_VALIDATE_INT);
+
     if(!$id) {
         header('Location: /admin');
     }
@@ -17,9 +20,7 @@
     
     $propiedad = Propiedad::find($id); //Obtener datos de propiedad:
 
-    // Consultar para tener a los vendedores:
-    $consulta = "SELECT * FROM vendedores";
-    $resultado = mysqli_query($db, $consulta);
+    $vendedores = Vendedor::all();
 
     $errores = Propiedad::getErrores();//Arreglo con msjs de error
 
@@ -33,13 +34,17 @@
 
         //Subida de archivos (imagen) :
         $nombreImg = md5(uniqid(rand(), true)).".jpg"; // nombre unico
-        if($_FILES['propiedad']['tmp_name']['imagen']) {
+        if($_FILES['propiedad']['tmp_name']['imagen']) {    
             $image = Image::make($_FILES['propiedad']['tmp_name']['imagen'])->fit(800,600);
             $propiedad->setImagen($nombreImg);//set al nombre de la imagen
-        }
-        //Validar que el arrar de errores este vació
+        } 
+           //Validar que el arrar de errores este vació
         if (empty($errores)) {
-            $image->save(CARPETA_IMAGENES.$nombreImg); //guardar img 
+            
+            if($_FILES['propiedad']['tmp_name']['imagen']) {    
+                $image->save(CARPETA_IMAGENES.$nombreImg); //guardar img 
+            } 
+
             $propiedad->guardar();
         }
     }
@@ -58,7 +63,7 @@
     
         <!-- enctype="multipart/form-data es necesario para la subida de archivo (investigar) -->
         <form method="POST" class="formulario" enctype="multipart/form-data">
-            <?php include '../../includes/templates/formulario.php' ?>
+            <?php include '../../includes/templates/formulario-propiedades.php' ?>
             <input type="submit" value="Actualizar Propiedad" class="boton  boton-verde">
         </form>
     </main>

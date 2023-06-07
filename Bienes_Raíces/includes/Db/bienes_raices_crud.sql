@@ -36,7 +36,7 @@ CREATE TABLE `propiedades` (
   PRIMARY KEY (`id`),
   KEY `fk_propiedades_vendedores_idx` (`vendedores_id`),
   CONSTRAINT `fk_propiedades_vendedores` FOREIGN KEY (`vendedores_id`) REFERENCES `vendedores` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `propiedades` (
 
 LOCK TABLES `propiedades` WRITE;
 /*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
-INSERT INTO `propiedades` VALUES (14,'Chozita',70000.00,'0016f1f13a601b7b4638dddcfec25d90.jpg','   probando  probando  probando  probando  probando  probando  probando  probando  probando  probando ',3,3,3,'2023-05-28',2),(17,'Otra Casa en la Playa',20000000.00,'f5ba66d749dd889fc4ae891f3b7c6c9e.jpg','  Para tebner las 3 mimnimas en el index',1,1,1,'2023-05-28',1),(18,'Casa en la playita',40000.00,'f624383bc20f6603143dcc928a658c79.jpg',' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor augue felis, facilisis bibendum tortor dictum vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor augue felis, facilisis bibendum tortor dictum vel.',3,3,3,'2023-06-01',2);
+INSERT INTO `propiedades` VALUES (14,'Chozita',70000.00,'2b3941135d1bf3fd26b3bf177192a746.jpg','    probando  probando  probando  probando  probando  probando  probando  probando  probando  probando ',3,3,3,'2023-05-28',2),(18,'Casa en la playita',40000.00,'f624383bc20f6603143dcc928a658c79.jpg',' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor augue felis, facilisis bibendum tortor dictum vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor augue felis, facilisis bibendum tortor dictum vel.',3,3,3,'2023-06-01',2),(22,' Casa Mérida',800000.00,'9bfd3b7d01ae0029ab064d1d30977480.jpg','    Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida',3,2,1,'2023-06-05',1),(23,' Casa Mérida (Actualizado)',3000000.00,'b05728dc7a9b61feb5241697ab758b6f.jpg',' Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado)',4,4,1,'2023-06-05',1),(25,' Nueva Propiedad',300000.00,'c070fcd0c4fb218dd13f6790bd7ed9be.jpg','  Nueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva Propiedad',3,3,3,'2023-06-07',2);
 /*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `vendedores` (
   `apellido` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `telefono` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `vendedores` (
 
 LOCK TABLES `vendedores` WRITE;
 /*!40000 ALTER TABLE `vendedores` DISABLE KEYS */;
-INSERT INTO `vendedores` VALUES (1,'Kevin','Medina','9996131871'),(2,'Alejandro','Padilla','9993142113');
+INSERT INTO `vendedores` VALUES (1,'Kevin','Medina','9996131871'),(2,'Alejandro','Padilla','9993142113'),(3,' Miguel','Medina','6565165165'),(8,'María','Padilla','1234567891');
 /*!40000 ALTER TABLE `vendedores` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -109,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-01 13:37:58
+-- Dump completed on 2023-06-07  1:24:13

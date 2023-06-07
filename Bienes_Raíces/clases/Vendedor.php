@@ -13,11 +13,28 @@
         
         function __construct($args = []) {
             
-            $this->id = $args['titulo'] ?? null;
+            $this->id = $args['id'] ?? null;
             $this->nombre = $args['nombre'] ?? '';
             $this->apellido = $args['apellido'] ?? '';
             $this->telefono = $args['telefono'] ?? '';
 
+        }
+        public function validar() {
+                    
+            if(!$this->nombre) {
+                self::$errores[] = "El nombre es obligatorio";
+            }
+            if(!$this->apellido) {
+                self::$errores[] = "El apellido es obligatorio";
+            }
+            if(!$this->telefono) {
+                self::$errores[] = "El número teléfonico es obligatorio";
+            }
+            if(!preg_match('/[0-9]{10}/', $this->telefono)) {
+                self::$errores[] = "El formato del número teléfonico es incorrecto (10 digitos)";
+            }
+
+            return self::$errores;
         }
     }
 
