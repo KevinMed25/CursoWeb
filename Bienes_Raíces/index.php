@@ -33,7 +33,6 @@
         <h2 class="negritas">Casas y Departamentos en Venta</h2>
         
         <?php 
-            $limite = 3;
             include 'includes/templates/anuncios.php';
         ?>
 
