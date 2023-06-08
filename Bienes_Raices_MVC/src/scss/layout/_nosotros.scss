@@ -1,0 +1,28 @@
+
+.contenido-nosotros {
+    
+    margin-bottom: 2rem;
+
+    @include tablet { 
+        @include grid(2,2rem);
+        align-items: center;
+    }
+
+    .texto-nosotros {
+        text-align: justify;
+    }
+
+}
+
+.contenido-nosotros blockquote {
+    text-align: center;
+    font-weight: $black;
+    font-size: 2.2rem;
+    padding: 1rem 0 2rem 0;
+    margin: 3rem 0 0 0;
+    border-bottom: 0.5rem solid $verde;
+
+    @include tablet {
+        text-align: left;
+    }
+}

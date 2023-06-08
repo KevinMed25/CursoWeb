@@ -1,0 +1,33 @@
+
+
+.testimonial {
+
+    background-color: $verde;
+    color: $blanco;
+    border-radius: 2rem;  
+    font-size: 2.4rem;
+    padding: 2rem;
+    
+    blockquote {
+
+        padding-left: 5rem;
+        position: relative; //pocisionar comillas izq
+
+        &::before {
+            content: "";
+            background-image: url(../img/comilla.svg);
+            background-repeat: no-repeat;
+            width: 6rem;
+            height: 8rem;
+            display: block;
+            position: absolute;  //pocisionar comillas izq
+            left: -2rem;// acomodar comillas
+        }
+
+    }
+    p {
+        text-align: center;
+        color: $blanco;
+        // margin-right: 4rem;
+    }
+}
