@@ -13,6 +13,8 @@
 
             if ($metodo === 'GET') {
                 $fn = $this->rutasGET[$urlAct] ?? null;
+            } else {
+                $fn = $this->rutasPOST[$urlAct] ?? null;
             }
 
             if ($fn) { // la funcion existe
@@ -26,8 +28,16 @@
             $this->rutasGET[$url] = $funcion;
         }
 
+        public function post($url, $funcion) {
+            $this->rutasPOST[$url] = $funcion;
+        }
+
         //muestra una vista:
-        public function render($view) {
+        public function render($view, $datos = []) {
+
+            foreach($datos as $key => $value) {
+                $$key = $value;
+            }
 
             ob_start();//inicia almacenamiento en memoria
             include __DIR__."/views/$view.php";
