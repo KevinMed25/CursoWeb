@@ -1,0 +1,97 @@
+
+.derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        align-items: flex-end;
+    }
+
+    .dark-mode-boton {
+        width: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        filter: invert(100%);
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+}
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    align-items: center;
+
+    @include tablet {
+        align-items: flex-end;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.navegacion {
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .3s ease-in-out, opacity 0.5s, height 0.5s linear;
+    height: 0;
+
+    @include tablet {
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        visibility:visible;
+    }
+
+     a {
+        color: $blanco;
+        font-size: 2.2rem;
+
+        display: block;
+        text-align: center;
+
+        &:hover {
+            color: $amarillo;
+        }
+
+        @include tablet {
+            margin-right: 2rem;
+            font-size: 1.8rem;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+     }
+}
+
+//burguer
+
+.mobile-menu {
+    @include tablet {
+        display: none;
+    }
+
+    img {
+        width: 4rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.mostrar {
+
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    // display: flex;
+    // flex-direction: column;
+    // //quitar bug con el nav en tamaño tablet
+    // @include tablet {
+    //     flex-direction: row;
+    // }
+}
