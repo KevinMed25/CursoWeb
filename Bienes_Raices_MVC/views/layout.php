@@ -5,7 +5,7 @@
     }
     $auth = $_SESSION['login'] ?? false;
 
-    if (isset($principal)) {
+    if (!isset($principal)) {
         $principal = false;
     }
 ?>
@@ -21,7 +21,7 @@
 </head>
 <body>
    
-    <header class="header <?php echo $principal ? 'principal' : '' ?>">
+    <header class="header <?php echo $principal ? 'principal' : ''; ?>">
         <div class=" contenedor contenido-header">
             <div class="barra">
                 <a href="/index.php">
@@ -37,12 +37,12 @@
                 <div class="derecha">
                     <img class="dark-mode-boton" src="/build/img/dark-mode.svg" alt="dark mode">
                     <nav class="navegacion">
-                        <a href="/nosotros.php">Nosotros</a>
-                        <a href="/anuncios.php">Anuncios</a>
-                        <a href="/blog.php">Blog</a>
-                        <a href="/contacto.php">Contacto</a>
+                        <a href="/nosotros">Nosotros</a>
+                        <a href="/propiedades">Anuncios</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/contacto">Contacto</a>
                         <?php if($auth): ?>
-                            <a href="/cerrar-sesion.php">Cerrar Sesión</a>
+                            <a href="/cerrar-sesion">Cerrar Sesión</a>
                         <?php else: ?>
                             <a href="/login.php">Administrador</a>
                         <?php endif; ?>
@@ -50,7 +50,6 @@
                 </div>
             </div>
             
-            <?php $principal = isset($principal) ? $principal : false; ?>
             <?php if($principal) { ?>
                 <h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>
             <?php }; ?>
