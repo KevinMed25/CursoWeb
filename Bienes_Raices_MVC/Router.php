@@ -8,6 +8,13 @@
         public $rutasPOST = [];
 
         public function comprobarRutas() {
+
+            session_start();
+            $auth = $_SESSION['login'] ?? false;
+
+            //arreglo rutas protegidas:
+            $rutasProtegidas = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar'];
+
             $urlAct = $_SERVER['PATH_INFO'] ?? '/';
             $metodo = $_SERVER['REQUEST_METHOD'];
 
@@ -15,6 +22,11 @@
                 $fn = $this->rutasGET[$urlAct] ?? null;
             } else {
                 $fn = $this->rutasPOST[$urlAct] ?? null;
+            }
+
+            //proteger rutas:
+            if(in_array($urlAct, $rutasProtegidas) && !$auth) {
+                header('Location: /');
             }
 
             if ($fn) { // la funcion existe
