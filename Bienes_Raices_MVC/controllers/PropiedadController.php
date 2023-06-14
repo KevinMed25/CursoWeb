@@ -84,6 +84,7 @@
                     
                     if($_FILES['propiedad']['tmp_name']['imagen']) {    
                         $image->save(CARPETA_IMAGENES.$nombreImg); //guardar img 
+                        // debug(CARPETA_IMAGENES.$nombreImg);
                     } 
 
                     $propiedad->guardar();
