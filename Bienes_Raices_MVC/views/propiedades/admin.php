@@ -5,7 +5,7 @@
         <?php 
             $mensaje = mostrarNotificacion(intval($resultado));
             if($mensaje){ ?>
-                <p class="alerta exito"> <?php echo healt($mensaje) ?> </p>
+                <p class="alerta exito"> <?php echo healt($mensaje); ?> </p>
             <?php }; ?>
            
         <div class = "centrar">

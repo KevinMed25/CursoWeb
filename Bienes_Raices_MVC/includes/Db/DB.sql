@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: bienes_raices_crud
 -- ------------------------------------------------------
--- Server version	8.0.33
+-- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,10 +24,10 @@ DROP TABLE IF EXISTS `propiedades`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `propiedades` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulo` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `precio` decimal(10,2) DEFAULT NULL,
-  `imagen` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `descripcion` longtext COLLATE utf8mb4_unicode_ci,
+  `imagen` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `descripcion` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `habitaciones` int DEFAULT NULL,
   `wc` int DEFAULT NULL,
   `estacionamiento` int DEFAULT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `propiedades` (
   PRIMARY KEY (`id`),
   KEY `fk_propiedades_vendedores_idx` (`vendedores_id`),
   CONSTRAINT `fk_propiedades_vendedores` FOREIGN KEY (`vendedores_id`) REFERENCES `vendedores` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `propiedades` (
 
 LOCK TABLES `propiedades` WRITE;
 /*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
-INSERT INTO `propiedades` VALUES (14,'Chozita',70000.00,'2b3941135d1bf3fd26b3bf177192a746.jpg','    probando  probando  probando  probando  probando  probando  probando  probando  probando  probando ',3,3,3,'2023-05-28',2),(18,'Casa en la playita',40000.00,'f624383bc20f6603143dcc928a658c79.jpg',' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor augue felis, facilisis bibendum tortor dictum vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor augue felis, facilisis bibendum tortor dictum vel.',3,3,3,'2023-06-01',2),(22,' Casa Mérida',800000.00,'9bfd3b7d01ae0029ab064d1d30977480.jpg','    Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida',3,2,1,'2023-06-05',1),(23,' Casa Mérida (Actualizado)',3000000.00,'b05728dc7a9b61feb5241697ab758b6f.jpg',' Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado)',4,4,1,'2023-06-05',1),(25,' Nueva Propiedad',300000.00,'c070fcd0c4fb218dd13f6790bd7ed9be.jpg','  Nueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva PropiedadNueva Propiedad',3,3,3,'2023-06-07',2);
+INSERT INTO `propiedades` VALUES (14,'Chozita',70000.00,'2b3941135d1bf3fd26b3bf177192a746.jpg','    probando  probando  probando  probando  probando  probando  probando  probando  probando  probando ',3,3,3,'2023-05-28',2),(18,'Casa en la playita',40000.00,'f624383bc20f6603143dcc928a658c79.jpg',' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor augue felis, facilisis bibendum tortor dictum vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor augue felis, facilisis bibendum tortor dictum vel.',3,3,3,'2023-06-01',2),(22,' Casa Mérida',800000.00,'9bfd3b7d01ae0029ab064d1d30977480.jpg','    Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida  Propiedad en Mérida',3,2,1,'2023-06-05',1),(23,' Casa Mérida',3000000.00,'b05728dc7a9b61feb5241697ab758b6f.jpg','  Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado) Casa Mérida (Actualizado)',4,4,1,'2023-06-05',1),(27,' Casa Prueba',54000.00,'378bf55a591e9d37c5ecc75f99751198.jpg','  Casa Prueba Casa Prueba Casa Prueba Casa Prueba Casa Prueba Casa Prueba Casa Prueba Casa Prueba Casa Prueba Casa Prueba Casa Prueba',3,3,3,'2023-06-14',1);
 /*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,10 +58,10 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` char(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` char(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (2,'correo@correo.com','$2y$10$3ji8dYwI0UHf7MhYxA5b8ekwDqBwZXILSJX2keGXDz7UgzaLI2j8W'),(3,'correo@correo.com','$2y$10$uZ0I/HU6Ng2Sbo2TZoTjkeNYBvr0TNAFTZG37zLl10gRjh2ToOdZe'),(4,'correo@correo.com','$2y$10$cXKRm0mByV7GrtKGzdUzS.j0jcv4AQJQQQNg2jA/2MrVN4czjbFym');
+INSERT INTO `usuarios` VALUES (5,'correo@correo.com','$2y$10$fIlI6uPUS8B49XEyqwEuJOcu/cmuVAiukMAZjEpDXRo5h8yKm8TWm');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,11 +83,11 @@ DROP TABLE IF EXISTS `vendedores`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vendedores` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `apellido` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telefono` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `apellido` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telefono` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-07  1:24:13
+-- Dump completed on 2023-06-13 21:51:13
