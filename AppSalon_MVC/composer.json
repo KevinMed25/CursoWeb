@@ -1,0 +1,19 @@
+{
+    "name": "kevin/app-salon_mvc",
+    "description": "Proyecto de APPSALON con PHP8, MVC, SQL, GULP, SASS, ETC",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alejandro Medina",
+            "email": "kevinmedina2509Jr@gmail.com"
+        }
+    ],
+    "require": {}
+}
