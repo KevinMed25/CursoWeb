@@ -108,12 +108,13 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `apellido` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `telefono` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `admin` tinyint(1) DEFAULT NULL,
-  `confrimado` tinyint(1) DEFAULT NULL,
+  `confirmado` tinyint(1) DEFAULT NULL,
   `token` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +123,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Kevin','Medina','correo@correo.com','0123456789',NULL,1,NULL);
+INSERT INTO `usuarios` VALUES (1,'Kevin','Medina','correo@correo.com','$2y$10$qocGeuLINfV/cb25pitW5.EndhdBz8L3aZBHn8YaEUnI/WA3cx2i2','0123456789',0,1,''),(2,' Alejandro','Medina','correo2@correo.com','$2y$10$/jHhLOziRslt3aCQbPJTbuXSlIZwYrU/cbZ5AXornsfTDSD7qeUgK','1234567890',0,0,'6491635c13c32 '),(3,' Oswaldo','Chan','correoOswaldo@correo.com','$2y$10$dOjH7gUmqqlqc/kpgv2MXeLTjJTg/XKPvdRlp63qZ6DcyVvzCz3GS','0123456789',0,0,'6492917f8c383 '),(4,' Miguel','Medina','correoMigue@correo.com','$2y$10$pMVKdQZtruEhESTnrSS15uD7NmpY/o1R8sNMKrybAM82xeainsLbO','0123456789',0,1,''),(5,' Admin','kevin','admin@admin.com','$2y$10$UDdrkZugJ.0NdqO3.FVhSuOmBobDyMOM2u6gDhBeBbsnzoUc3KpPm','0123456789',1,1,'');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -135,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-17  2:40:03
+-- Dump completed on 2023-06-21  2:16:21
