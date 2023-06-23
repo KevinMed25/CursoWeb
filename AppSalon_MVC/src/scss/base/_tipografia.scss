@@ -25,10 +25,14 @@ p {
 
 .nom-pagina {
     text-align: center;
-    margin: 5rem 0;
+    margin: 4rem 0;
     font-weight: v.$bold;
 }
 
 .descripcion-pagina {
     text-align: center;
+}
+
+.no-margin {
+    margin: 0;
 }
