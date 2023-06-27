@@ -56,7 +56,11 @@ class LoginController {
     }
 
     public static function logout() {
-        echo "Desde logout...";
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $_SESSION = [];
+        header('Location: /');
     }
 
     public static function olvide(Router $router) {

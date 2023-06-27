@@ -1,3 +1,6 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
 .seccion {
     
     padding: 4rem 0;
@@ -15,4 +18,27 @@
 
 .ocultar {
     display: none;
+}
+
+.barra {
+    text-align: center;
+    margin-bottom: 5rem;
+    span {
+        font-weight: bold;
+        color: v.$azul;
+    }
+
+    @include m.tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .boton {
+        @include m.boton(v.$negro, v.$blanco);
+        margin: 0;
+        &:hover {
+            background-color: lighten(v.$negro, 10%);
+        }
+    }
 }

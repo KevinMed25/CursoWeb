@@ -12,3 +12,10 @@ function healt($html) : string {
     $s = htmlspecialchars($html);
     return $s;
 }
+
+//funcion que revisa autenticacion
+function isAuth() : void {
+    if(!isset($_SESSION['login'])) {
+        header('Location: /');
+    }
+}

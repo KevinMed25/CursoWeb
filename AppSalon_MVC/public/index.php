@@ -12,8 +12,7 @@ $router = new Router();
 //inicio de sesion:
 $router->get("/",[LoginController::class, 'login']);
 $router->post("/",[LoginController::class, 'login']);
-$router->post("/logout",[LoginController::class, 'logout']);
-
+$router->get("/logout",[LoginController::class, 'logout']);
 //recuperar password
 $router->get("/olvide",[LoginController::class, 'olvide']);
 $router->post("/olvide",[LoginController::class, 'olvide']);
@@ -33,6 +32,7 @@ $router->get('/cita', [CitaController::class, 'index']);
 
 //API
 $router->get('/api/servicios', [ApiController::class, 'index']);
+$router->post('/api/citas', [ApiController::class, 'guardar']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

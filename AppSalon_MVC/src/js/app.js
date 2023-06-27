@@ -3,6 +3,7 @@ let pasoInicial = 1;
 let pasoFinal = 3;
 
 const cita = {
+    id: '',
     nombre: '',
     fecha: '',
     hora: '',
@@ -21,6 +22,8 @@ function iniciarApp() {
     paginaAnterior();
 
     consultarAPI();//consultar api en backend php
+
+    idCliente();
     nombreCliente();
     seleccionarFecha();
     seleccionarHora();
@@ -154,6 +157,10 @@ function seleccionarServicio(servicio) {
     // console.log(servicio);
 }
 
+function idCliente() {
+    cita.id = document.querySelector('#id').value;
+}
+
 function nombreCliente() {
     const nombre = document.querySelector('#nombre').value;
     cita.nombre = nombre;
@@ -258,8 +265,52 @@ function mostrarResumen() {
     resumen.appendChild(boton);
 }
 
-function reservarCita() {
-    console.log('Reservando la cita...');
+async function reservarCita() {
+    
+    const {nombre, fecha, hora, servicios, id} = cita;
+    const idServicios = servicios.map(servicio => servicio.id);
+
+    const datos = new FormData();
+
+    datos.append('fecha', fecha);
+    datos.append('hora', hora);
+    datos.append('usuarioid', id);
+    datos.append('servicios', idServicios);
+
+    try {
+        const url = '/api/citas';
+        const respuesta = await fetch(url, {
+            method: 'POST',
+            body: datos
+        });
+        const resultado = await respuesta.json();
+
+        if (resultado.resultado) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '<span class="white-text">Cita Creada Correctamente!</span>',
+                showConfirmButton: false,
+                timer: 3000,
+                background: '#0da6f3',
+                textColor: '#FFFFFF'
+            }).then(()=> {
+                window.location.reload();
+            })
+        }
+    } catch (error) {
+        Swal.fire({
+            position: 'error',
+            icon: 'success',
+            title: '<span class="white-text">Error al guardar la cita!</span>',
+            showConfirmButton: false,
+            timer: 3000,
+            background: '#cb0000',
+            textColor: '#FFFFFF'
+        }).then(()=> {
+            window.location.reload();
+        })
+    }   
 }
 
 function mostrarAlerta(mensaje, tipo, elemento, desaparecer = true) {
