@@ -30,6 +30,7 @@ class ApiController {
         }
 
         //retornamos una respuesta
+        header('Content-Type: application/json');
         echo json_encode(['resultado' => $resultado]);
     }
 }
